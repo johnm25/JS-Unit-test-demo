@@ -104,6 +104,7 @@
     <Content Include="css\index.css" />
     <Content Include="index.html" />
     <Content Include="js\base.js" />
+    <Content Include="js\main.js" />
     <Content Include="license.txt" />
     <Content Include="packages.config" />
     <Content Include="learn.json" />
@@ -122,7 +123,6 @@
   <ItemGroup>
     <Content Include="js\config\global.js" />
     <Content Include="js\extends\handlers.js" />
-    <Content Include="js\main.js" />
     <Content Include="js\models\Todo.js" />
     <Content Include="js\viewmodels\todo.js" />
     <Content Include="Scripts\jsnlog.min.js" />
