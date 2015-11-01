@@ -1,6 +1,6 @@
 /*global require, window */
 
-require('main', ['knockout', 'config/global', 'viewmodels/todo', 'jsnlog', 'extends/handlers'],
+require( ['knockout', 'config/global', 'viewmodels/todo', 'jsnlog', 'extends/handlers'],
     function (ko, g, TodoViewModel, log) {
         'use strict';
 
