@@ -1,8 +1,10 @@
 /*global define */
 
-define("models/todo", ['knockout'],
-    function (ko) {
+define("models/todo", ['knockout', 'jsnlog'],
+    function (ko, log) {
         'use strict';
+
+        log().info('model/Todo instance');
 
         debugger;
 

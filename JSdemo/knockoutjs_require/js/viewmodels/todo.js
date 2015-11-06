@@ -4,6 +4,8 @@ define('viewmodels/todo', ['knockout', 'config/global', 'models/todo', 'jsnlog']
     function (ko, g, Todo, log) {
         'use strict';
 
+        log().info('viewmodels/Todo instance');
+
         debugger;
 
         // our main view model
@@ -45,7 +47,7 @@ define('viewmodels/todo', ['knockout', 'config/global', 'models/todo', 'jsnlog']
             // edit an item
             self.editItem = function (item) {
                 item.editing(true);
-                log().info('edit:' + todo.title);
+                log().info('edit:' + item.title);
             };
 
             // stop editing an item.  Remove the item, if it is now empty

@@ -9,16 +9,14 @@
 
 /*globals define, describe, expect, it, fixture */
 
-ReSharperReporter.prototype.jasmineDone = function () { };
+//ReSharperReporter.prototype.jasmineDone = function () { };
 
-describe("todo Spec", function () {
+describe("Model todo Spec", function () {
     "use strict";
 
-    console.log('todo.spec.js');
-    debugger;
+    console.log('model.todo.spec.js');
 
-    var testModule,
-        getJsonStub = ''; //sinon.stub($, 'getJSON').returns(new $.Deferred().resolve(fixture.applicationViewModelData));;
+    var testModule;
 
     beforeEach(function (done) {
         if (testModule) {
@@ -33,7 +31,6 @@ describe("todo Spec", function () {
     });
 
     afterEach(function () {
-        //getJsonStub.restore();
     });
 
 
@@ -41,38 +38,6 @@ describe("todo Spec", function () {
         var bb = new testModule('test', false);
         expect(bb.title()).toBe('test');
         expect(bb.completed()).toBeFalsy();
-    });
-
-    xit("applicationService properties are defined", function () {
-        expect(testModule.getApplicationData).toBeDefined();
-    });
-
-    xit("applicationService properties are defined", function () {
-        expect(testModule.getApplicationData).toBeDefined();
-    });
-
-   xit('should retrieve the applicationModel Data from Backend', function () {
-        testModule.getApplicationData().done(function (data) {
-            expect(data).toBeDefined();
-            expect(typeof data).toBe(typeof {});
-            expect(data.DownPaymentMax).toBe(10);
-        });
-    });
-
-    xit("getApplicationData return object", function () {
-        spyOn($, "ajax").and.callFake(function (options) {
-            options.data = { peter: 'test' };
-            options.done = true;
-        });
-        var callback = jasmine.createSpy();
-        testModule.getApplicationData();
-        expect(callback).toHaveBeenCalled();
-        expect(typeof testModule.getApplicationData()).toBe(typeof {});
-    });
-
-    xit("getApplicationData object have properties", function () {
-        var data = testModule.getApplicationData();
-        expect(data.DownPaymentMax).toBe(10);
     });
 
 });

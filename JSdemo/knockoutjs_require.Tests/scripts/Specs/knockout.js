@@ -1,4 +1,4 @@
-/*globals define */
+/*globals define, window, ko */
 
 define("knockout", function () {
     "use strict";
@@ -10,7 +10,4 @@ define("knockout", function () {
     return ko;
 });
 
-//define("jquery", function () {
-//    "use strict";
-//    return jQuery.noConflict(true);
-//});
+

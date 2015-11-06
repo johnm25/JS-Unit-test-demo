@@ -79,6 +79,9 @@
     <Content Include="scripts\Specs\todo.model..spec.js" />
   </ItemGroup>
   <ItemGroup>
+    <None Include=".jscsrc" />
+    <None Include=".jshintrc" />
+    <None Include=".weignore" />
     <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />

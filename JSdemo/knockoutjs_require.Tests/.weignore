@@ -1,0 +1,16 @@
+﻿Basic Usage
+# To ignore file path including the word "style":
+**/**style**
+
+# To ignore path with .min.js at the end: 
+**/**.min.js
+**/**html.js
+
+# To ignore file path including the folder name "slug": 
+**/slug/** 
+
+**/jasmine.js
+**/mock-ajax.js
+**/boot.js
+**/console.js
+**/Squire.js
