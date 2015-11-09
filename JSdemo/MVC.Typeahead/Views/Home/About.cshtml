@@ -5,3 +5,33 @@
 <h3>@ViewBag.Message</h3>
 
 <p>Use this area to provide additional information.</p>
+<div data-bind="Loading: isLoading">
+    <input id="searchfield" class="typeahead" type="text" placeholder="Marke model katalog" data-bind="value: name">
+</div>
+<input id="searchfield2" placeholder="dddd" type="text"
+       data-bind="value: name, 
+                  css: { 'tt-loading': isLoading()}">
+
+@section scripts {
+    <script type="text/javascript" src="/Scripts/handlebars.min.js"></script>
+    <script type="text/javascript" src="/Scripts/typeahead.bundle.min.js"></script>
+    <script type="text/javascript" src="/Scripts/spin.min.js"></script>
+    <script data-main="../js/app/main" src="~/Scripts/require.js"></script>
+    <script type="text/javascript">
+        // Require.js allows us to configure shortcut alias
+        require.config({
+            urlArgs: "bust=" + new Date().getTime(),
+            paths: {
+                knockout: '../../scripts/knockout-3.3.0',
+                jsnlog: '../../scripts/jsnlog',
+                'extends/handlers': '../../js/app/handlers'
+            }
+        });
+    </script>
+}
+
+@section CustomStyles {
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/Content/typeahead.css">
+    <link rel="stylesheet" href="/Content/dots.css">
+}

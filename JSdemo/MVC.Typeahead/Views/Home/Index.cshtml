@@ -12,7 +12,8 @@
     <div class="col-md-4">
         <h2>Typeahead</h2>
         <div id="the-basics">
-            <input class="typeahead" type="text" placeholder="States of USA">
+            <span class="small progress">Loading&#8230;</span>
+            <input id="searchfield" class="typeahead small progress" type="text" placeholder="Marke model katalog">
         </div>
     </div>
     <div class="col-md-4">
@@ -31,11 +32,13 @@
     {
         <script type="text/javascript" src="/Scripts/handlebars.min.js"></script>
         <script type="text/javascript" src="/Scripts/typeahead.bundle.min.js"></script>
-        <script type="text/javascript" src="../../js/the-basics.js"></script>
+        <script type="text/javascript" src="/Scripts/spin.min.js"></script>
+        <script type="text/javascript" src="../../js/cars.js"></script>
     }
 
     @section CustomStyles {
         <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
         <link rel="stylesheet" href="/Content/typeahead.css">
+        <link rel="stylesheet" href="/Content/dots.css">
     }
 </div>

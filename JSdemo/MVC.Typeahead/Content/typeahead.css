@@ -1,4 +1,8 @@
-﻿.typeahead,
+﻿.tt-loading {
+    background:url('/Content/ajax-loader.gif') no-repeat right center;
+}
+
+.typeahead,
 .tt-query,
 .tt-hint {
   width: 396px;
@@ -11,6 +15,7 @@
      -moz-border-radius: 8px;
           border-radius: 8px;
   outline: none;
+  color: #ee0d0d;
 }
 
 .typeahead {
@@ -25,10 +30,6 @@
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
      -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
           box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-}
-
-.tt-hint {
-  color: #999
 }
 
 .tt-menu {
