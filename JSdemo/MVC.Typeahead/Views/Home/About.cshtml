@@ -9,8 +9,12 @@
     <input id="searchfield" class="typeahead" type="text" placeholder="Marke model katalog" data-bind="value: name">
 </div>
 <input id="searchfield2" placeholder="dddd" type="text"
-       data-bind="value: name, 
+       data-bind="value: name,
+                  typeahead: { 
+                      name: 'something', 
+                      display: 'Name' },
                   css: { 'tt-loading': isLoading()}">
+
 
 @section scripts {
     <script type="text/javascript" src="/Scripts/handlebars.min.js"></script>
@@ -31,7 +35,7 @@
 }
 
 @section CustomStyles {
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    @*<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">*@
     <link rel="stylesheet" href="/Content/typeahead.css">
     <link rel="stylesheet" href="/Content/dots.css">
 }

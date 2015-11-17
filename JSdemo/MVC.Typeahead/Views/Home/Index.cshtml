@@ -1,44 +1,163 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Dealer Portal";
 }
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<p>Use this area to provide additional information.</p>
 
 <div class="row">
     <div class="col-md-4">
-        <h2>Typeahead</h2>
-        <div id="the-basics">
-            <span class="small progress">Loading&#8230;</span>
-            <input id="searchfield" class="typeahead small progress" type="text" placeholder="Marke model katalog">
+        <div class="search">
+            <i class="fa fa-search"></i>
+            <input id="searchfieldReg"
+                   class="typeahead"
+                   type="text"
+                   placeholder="Registeringsnummer"
+                   data-bind="value: vm.regNo,
+                  typeahead: {
+                      name: 'something',
+                      display: displayRegNo,
+                      type : 'registration'
+                  },
+                  css: { 'tt-loading': isLoadingRegNo()},
+                  event: { change: changeReg }" />
+            <button class="fa fa-times-circle" data-bind="click:clearRegNo.bind($data, 'peter')"></button>
+            <i class="fa fa-circle-o-notch fa-spin"></i>
         </div>
+        <div class="clearfix"></div>
+        <div class="clearfix"></div>
+
+        <div>
+            <input id="searchfieldStel"
+                   class="typeahead"
+                   type="text"
+                   placeholder="Stelnummer"
+                   data-bind="value: vm.stelNo,
+                  typeahead: {
+                      name: 'something',
+                      display: displayVIN,
+                      type : 'vin'
+                  },
+                  css: { 'tt-loading': isLoadingStelNo()},
+                  event: { change: changeVin }" />
+        </div>
+        <br />
+        <div>
+            <input id="searchfieldVariant"
+                   class="typeahead clearable"
+                   type="text"
+                   placeholder="Mærke model katalog"
+                   data-bind="value: vm.name,
+                  typeahead: {
+                      name: 'something',
+                      display: displayVariant,
+                      type : 'variant'
+                  },
+                  css: { 'tt-loading': isLoadingVariant()},
+                  event: { change: changeVariant }" />
+        </div>
+        <br />
     </div>
+    <br />
     <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        <section id="main" data-bind="visible: favorites().length">
+            <ul id="fav-list" data-bind="foreach: favorites">
+                <li class="ui-state-default" data-bind="css: { completed: true, editing: false }">
+                    <div class="view">
+                        <label data-bind="text: title, event: { dblclick: $root.editItem }"></label>
+                        <button class="destroy" data-bind="click: $root.remove"></button>
+                    </div>
+                    <input class="edit" data-bind="value: title, valueUpdate: 'afterkeydown', enterKey: $root.stopEditing, selectAndFocus: editing, event: { blur: $root.stopEditing }">
+                </li>
+            </ul>
+        </section>
     </div>
+    <br />
+</div>
+<div class="row">
     <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p>
-            <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a>
-        </p>
+        Id: <label data-bind="text: selected.id"></label>
+        <div class="clearfix"></div>
+        Brand: <label data-bind="text: selected.brand"></label>
+        <div class="clearfix"></div>
+        Model: <label data-bind="text: selected.model"></label>
+        <div class="clearfix"></div>
+        Variant: <label data-bind="text: selected.variant"></label>
+        <div class="clearfix"></div>
+        RegNo: <label data-bind="text: selected.regNo"></label>
+        <div class="clearfix"></div>
+        VIN: <label data-bind="text: selected.stelNo"></label>
+
     </div>
-    @section scripts
-    {
+
+    @section scripts {
         <script type="text/javascript" src="/Scripts/handlebars.min.js"></script>
         <script type="text/javascript" src="/Scripts/typeahead.bundle.min.js"></script>
         <script type="text/javascript" src="/Scripts/spin.min.js"></script>
-        <script type="text/javascript" src="../../js/cars.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery-ui-1.11.4.min.js"></script>
+        <script type="text/javascript" src="/Scripts/jquery.clearsearch.js"></script>
+        <script data-main="../js/app/main" src="~/Scripts/require.js"></script>
+        <script type="text/javascript">
+            // Require.js allows us to configure shortcut alias
+            require.config({
+                urlArgs: "bust=" + new Date().getTime(),
+                paths: {
+                    knockout: '../../scripts/knockout-3.3.0',
+                    jsnlog: '../../scripts/jsnlog'
+                }
+            });
+
+            $(function () {
+                $("#fav-list").sortable({
+                    placeholder: "ui-sortable-placeholder"
+                });
+            });
+
+
+            $(function () {
+                // init plugin (with callback)
+                $('.clearable').clearSearch({ callback: function () { console.log("cleared"); } });
+
+                // update value
+                $('.clearable').val('sample value').change();
+
+                // change width
+                $('.clearable').width('200px').change();
+            });
+
+        </script>
     }
 
     @section CustomStyles {
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+        @*<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">*@
+        <link rel="stylesheet" href="/Content/font-awesome.min.css">
         <link rel="stylesheet" href="/Content/typeahead.css">
         <link rel="stylesheet" href="/Content/dots.css">
+        <style type="text/css">
+            .search {
+                position: relative;
+            }
+
+                .search input {
+                    text-indent: 1.7em;
+                }
+
+                .search .fa-search {
+                    position: absolute;
+                    top: 0.5em;
+                    left: 0.3em;
+                    font-size: 1em;
+                    z-index: 2;
+                    float: right;
+                }
+
+            .fa-times-circle {
+                position: relative;
+                right: 2.2em;
+                z-index: 2;
+                top: 0.4em;
+                color: red;
+            }
+        </style>
     }
-</div>

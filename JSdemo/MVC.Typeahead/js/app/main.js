@@ -1,6 +1,6 @@
 ﻿/*global require, window */
 
-require(['knockout', 'carController', 'jsnlog', 'extends/handlers'],
+require(['knockout', 'carController', 'jsnlog', 'typeaheadHandler'],
     function (ko, CarController, log) {
         'use strict';
 
@@ -11,8 +11,14 @@ require(['knockout', 'carController', 'jsnlog', 'extends/handlers'],
         //var todos = ko.utils.parseJson(window.localStorage.getItem(g.localStorageItem));
 
 
+        var fav = [
+            { title: "C4", favorite: true },
+            { title: "115", favorite: true },
+            { title: "A4", favorite: true }
+        ];
+
         // bind a new instance of our view model to the page
-        ko.applyBindings(new CarController([]));
+        ko.applyBindings(new CarController(fav));
     });
 
 (function() {
@@ -22,7 +28,7 @@ require(['knockout', 'carController', 'jsnlog', 'extends/handlers'],
     window.__jsnlog_configure = function(JL) {
 
         // unhandle errors
-        window.onerror = function myErrorHandler(errorMsg, url, lineNumber, errorObj) {
+        window.onerror = function myErrorHandler(errorMsg, url, lineNumber, column,  errorObj) {
             JL().fatalException({
                 "msg": "Exception!",
                 "errorMsg": errorMsg,

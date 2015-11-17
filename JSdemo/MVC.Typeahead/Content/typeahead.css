@@ -1,19 +1,94 @@
-﻿.tt-loading {
+﻿.ui-sortable {
+    width: 350px;
+    margin: 50px auto;
+    background-color: #ccc;
+    -webkit-box-shadow:  0px 0px 10px 1px rgba(0, 0, 0, .1);
+  box-shadow:  0px 0px 10px 1px rgba(0, 0, 0, .1);
+  list-style-type: none; 
+  padding: 0; 
+}
+
+.ui-sortable li.ui-state-default { 
+    margin: 0; 
+    height: 45px;
+    line-height: 48px;
+    font-size: 1.4em; 
+    color: #fff;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    text-indent: 15px;
+    background: rgb(78,82,91);
+    background: -moz-linear-gradient(top,  rgb(78,82,91) 0%, rgb(57,61,68) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgb(78,82,91)), color-stop(100%,rgb(57,61,68)));
+    background: -webkit-linear-gradient(top,  rgb(78,82,91) 0%,rgb(57,61,68) 100%);
+    background: -o-linear-gradient(top,  rgb(78,82,91) 0%,rgb(57,61,68) 100%);
+    background: -ms-linear-gradient(top,  rgb(78,82,91) 0%,rgb(57,61,68) 100%);
+    background: linear-gradient(to bottom,  rgb(78,82,91) 0%,rgb(57,61,68) 100%);
+    border-top: 1px solid rgba(255,255,255,.2);
+    border-bottom: 1px solid rgba(0,0,0,.5);
+    text-shadow: -1px -1px 0px rgba(0,0,0,.5);
+    font-size: 1.1em;
+    position: relative;
+    cursor: pointer;
+}
+.ui-sortable li.ui-state-default:first-child {
+    border-top: 0; 
+}
+.ui-sortable li.ui-state-default:last-child {
+    border-bottom: 0;
+}
+
+
+.ui-sortable-placeholder {
+    border: 3px dashed #aaa;
+    height: 45px;
+    width: 344px;
+    background: #ccc;
+}
+
+@font-face {
+  font-family: "FontAwesome";
+  src: url('font/fontawesome-webfont.eot');
+  src: url('font/fontawesome-webfont.eot?#iefix') format('eot'), 
+       url('font/fontawesome-webfont.woff') format('woff'), 
+       url('font/fontawesome-webfont.ttf') format('truetype'), 
+       url('font/fontawesome-webfont.svg#FontAwesome') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.ui-sortable li.ui-state-default:after {
+    content: "\f0c9";
+    display: inline-block;
+    font-family: "FontAwesome";
+    position: absolute;
+    right: 18px;
+    top: 9px;
+    text-align: center;
+    line-height: 35px;
+    color: rgba(255,255,255,.2);
+    text-shadow: 0px 0px 0px rgba(0,0,0,0);
+    cursor: move;
+}
+
+.tt-loading {
     background:url('/Content/ajax-loader.gif') no-repeat right center;
 }
 
 .typeahead,
 .tt-query,
 .tt-hint {
-  width: 396px;
+  width: 234px;
   height: 30px;
-  padding: 8px 12px;
-  font-size: 24px;
-  line-height: 30px;
-  border: 2px solid #ccc;
-  -webkit-border-radius: 8px;
-     -moz-border-radius: 8px;
-          border-radius: 8px;
+  padding: 2px 4px 2px 4px;
+  font-family: Verdana;
+  font-size: 11px;
+  line-height: 18px;
+  border: 1px solid #999999;
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
   outline: none;
   color: #ee0d0d;
 }
@@ -33,24 +108,24 @@
 }
 
 .tt-menu {
-  width: 422px;
-  margin: 12px 0;
-  padding: 8px 0;
+  width: 322px;
+  margin: 2px 0;
+  padding: 4px 0;
   background-color: #fff;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  -webkit-border-radius: 8px;
-     -moz-border-radius: 8px;
-          border-radius: 8px;
-  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  -webkit-border-radius: 0px;
+     -moz-border-radius: 0px;
+          border-radius: 0px;
+  /*-webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
      -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
-          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+          box-shadow: 0 5px 10px rgba(0,0,0,.2);*/
 }
 
 .tt-suggestion {
   padding: 3px 20px;
-  font-size: 18px;
-  line-height: 24px;
+  font-size: 11px;
+  line-height: 14px;
 }
 
 .tt-suggestion:hover {
